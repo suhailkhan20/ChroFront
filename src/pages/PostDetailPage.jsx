@@ -16,14 +16,14 @@ const PostDetailPage = () => {
     const fetchPostAndComments = async () => {
       try {
         // Fetch post details
-        const postResponse = await fetch(`http://localhost:5020/api/posts/${id}`);
+        const postResponse = await fetch(`https://chrolog.onrender.com/api/posts/${id}`);
         const postData = await postResponse.json();
         setPost(postData);
         setTitle(postData.title);
         setContent(postData.content);
 
         // Fetch comments for the post
-        const commentsResponse = await fetch(`http://localhost:5020/api/comments/${id}`);
+        const commentsResponse = await fetch(`https://chrolog.onrender.com/api/comments/${id}`);
         const commentsData = await commentsResponse.json();
         setComments(commentsData);
       } catch (error) {
@@ -39,7 +39,7 @@ const PostDetailPage = () => {
 
     if (window.confirm('Are you sure you want to delete this post?')) {
       try {
-        const response = await fetch(`http://localhost:5020/api/posts/${id}`, {
+        const response = await fetch(`https://chrolog.onrender.com/api/posts/${id}`, {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -62,7 +62,7 @@ const PostDetailPage = () => {
     if (!token) return alert('You must be logged in to update a post.');
 
     try {
-      const response = await fetch(`http://localhost:5020/api/posts/${id}`, {
+      const response = await fetch(`https://chrolog.onrender.com/api/posts/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -95,7 +95,7 @@ const PostDetailPage = () => {
     }
     
     try {
-      const response = await fetch(`http://localhost:5020/api/comments/${id}`, {
+      const response = await fetch(`https://chrolog.onrender.com/api/comments/${id}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
