@@ -23,7 +23,7 @@ const ProfilePage = () => {
             try {
                 if (id) {
                     // Fetch profile by ID for other users
-                    const profileResponse = await fetch(`http://localhost:5020/api/users/${id}`);
+                    const profileResponse = await fetch(`https://chrolog.onrender.com/api/users/${id}`);
                     if (!profileResponse.ok) {
                         throw new Error('Profile not found.');
                     }
@@ -31,7 +31,7 @@ const ProfilePage = () => {
                     setProfile(profileData);
                 } else {
                     // Fetch logged-in user's own profile
-                    const profileResponse = await fetch('http://localhost:5020/api/users/me', {
+                    const profileResponse = await fetch('https://chrolog.onrender.com/api/users/me', {
                         headers: {
                             'Authorization': `Bearer ${token}`,
                         },
@@ -63,7 +63,7 @@ const ProfilePage = () => {
 
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch('http://localhost:5020/api/users/upload-photo', {
+            const response = await fetch('https://chrolog.onrender.com/api/users/upload-photo', {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -111,7 +111,7 @@ const ProfilePage = () => {
                 >
                     {profile.profilePicture ? (
                         <img 
-                            src={`http://localhost:5020${profile.profilePicture}`} 
+                            src={`https://chrolog.onrender.com${profile.profilePicture}`} 
                             alt="Profile" 
                             className="w-full h-full object-cover" 
                         />
