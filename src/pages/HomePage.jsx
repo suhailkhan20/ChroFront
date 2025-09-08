@@ -10,11 +10,11 @@ const HomePage = ({ searchQuery }) => {
     const fetchPosts = async () => {
       setLoading(true);
       try {
-        let url = 'http://localhost:5020/api/posts';
+        let url = 'https://chrolog.onrender.com/api/posts';
 
         // Check if there is a search query and update the URL accordingly
         if (searchQuery) {
-          url = `http://localhost:5020/api/posts/search?query=${searchQuery}`;
+          url = `https://chrolog.onrender.com/api/posts/search?query=${searchQuery}`;
         }
         
         const response = await fetch(url);
