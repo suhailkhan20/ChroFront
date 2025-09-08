@@ -16,7 +16,7 @@ const NewPostPage = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:5020/api/posts', {
+      const response = await fetch('https://chrolog.onrender.com/api/posts', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
